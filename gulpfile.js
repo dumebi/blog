@@ -13,7 +13,28 @@ require('laravel-elixir-vue-2');
  |
  */
 
-elixir(mix => {
+elixir(function(mix) {
     mix.sass('app.scss')
-       .webpack('app.js');
+
+        .styles([
+                'skins/_all-skins.min.css',
+                'AdminLTE.min.css',
+                'bootstrap.min.css',
+                'dataTables.bootstrap.css',
+                'jquery.dataTables.css',
+                'select2.min.css'
+
+
+        ], './public/css/libs.css')
+        .scripts([
+
+                'bootstrap.min.js',
+                'jquery.min.js',
+                'pages/dashboard.js',
+                'dataTables.bootstrap.js',
+                'jquery.dataTables.js',
+                'select2.full.min.js',
+                'app.js'
+
+                ], './public/js/libs.js')
 });
