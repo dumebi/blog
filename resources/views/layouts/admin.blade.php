@@ -111,8 +111,8 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> All Users</a> <small class="label pull-right bg-green">1</small></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Create User</a></li>
+                        <li><a href="{{route('users.index')}}"><i class="fa fa-circle-o"></i> All Users</a> <small class="label pull-right bg-green">1</small></li>
+                        <li><a href="{{route('users.create')}}"><i class="fa fa-circle-o"></i> Create User</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
