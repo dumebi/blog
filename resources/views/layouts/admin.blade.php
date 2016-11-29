@@ -105,26 +105,45 @@
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="all_courses.php">
-                        <i class="fa fa-book"></i> <span> Users</span> <small class="label pull-right bg-green">1</small>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-user"></i> <span> Users</span>
+                        <i class="fa fa-angle-left pull-right"></i>
                     </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> All Users</a> <small class="label pull-right bg-green">1</small></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Create User</a></li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="all_categories.php">
-                        <i class="fa fa-tags"></i> <span> Posts</span> <small class="label pull-right bg-green">1</small>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-book"></i> <span> Posts</span>
+                        <i class="fa fa-angle-left pull-right"></i>
                     </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> All Posts</a> <small class="label pull-right bg-green">1</small></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Create Post</a></li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="all_users.php">
-                        <i class="fa fa-users"></i> <span> Categories</span> <small class="label pull-right bg-green">1</small>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-book"></i> <span> Categories</span>
+                        <i class="fa fa-angle-left pull-right"></i>
                     </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> All Categories</a> <small class="label pull-right bg-green">1</small></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Create Category</a></li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="all_users.php">
-                        <i class="fa fa-users"></i> <span> Media</span> <small class="label pull-right bg-green">1</small>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-book"></i> <span> Media</span>
+                        <i class="fa fa-angle-left pull-right"></i>
                     </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> All Media</a> <small class="label pull-right bg-green">1</small></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Create Media</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="new_user.php">
@@ -141,9 +160,7 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                All Courses
-
+            <h1>&nbsp;
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
