@@ -15,7 +15,7 @@ class AddPhotoIdToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('photo');
+            $table->string('photo_id');
         });
     }
 
@@ -28,7 +28,7 @@ class AddPhotoIdToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropColumn('photo');
+            $table->dropColumn('photo_id');
 
         });
     }

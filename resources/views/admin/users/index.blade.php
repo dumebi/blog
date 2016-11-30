@@ -14,6 +14,7 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
+                            <th>Photo</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
@@ -26,7 +27,8 @@
                         @if($users)
                             @foreach($users as $user)
                                 <tr>
-                                    <td>{{$user->name}}</td>
+                                    <td><img height="50" src="{{$user->photo ? $user->photo->path : '/images/avatar.png'}}" alt=""></td>
+                                    <td><a href="{{route('users.edit', $user->id)}}">{{$user->name}}</a></td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->role->name}}</td>
                                     <td>{{$user->is_active == 1 ? 'Active' : 'Not active'}}</td>
