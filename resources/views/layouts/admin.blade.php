@@ -1,3 +1,8 @@
+<?php
+use App\Photo;
+use App\Role;
+use App\User;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,27 +56,30 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{asset('images/avatar.png')}}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Jude</span>
+                            <img src="{{Auth::user()->photo ? Auth::user()->photo->path : '/images/avatar.png'}}" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{{asset('images/avatar.png')}}" class="img-circle" alt="User Image">
+                                <img src="{{Auth::user()->photo ? Auth::user()->photo->path : '/images/avatar.png'}}" class="img-circle" alt="User Image">
                                 <p>
-                                    Jude - HealthPro
+                                    {{ Auth::user()->name }} - HealthPro
 
                                 </p>
                             </li>
 
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="account.php" class="btn btn-default btn-flat">Change Password</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="signout.php" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
+                                <a class="btn btn-default" href="{{ url('/logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
                         </ul>
                     </li>
@@ -88,10 +96,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{{asset('images/avatar.png')}}" class="img-circle" alt="User Image">
+                    <img src="{{Auth::user()->photo ? Auth::user()->photo->path : '/images/avatar.png'}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Jude</p>
+                    <p>{{ Auth::user()->name }}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -101,7 +109,7 @@
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
-                    <a href="index.php">
+                    <a href="/admin">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
@@ -111,7 +119,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('users.index')}}"><i class="fa fa-circle-o"></i> All Users</a> <small class="label pull-right bg-green">1</small></li>
+                        <li><a href="{{route('users.index')}}"><i class="fa fa-circle-o"></i> All Users <small class="label pull-right bg-green">{{count(User::all())}}</small></a> </li>
                         <li><a href="{{route('users.create')}}"><i class="fa fa-circle-o"></i> Create User</a></li>
                     </ul>
                 </li>
@@ -121,8 +129,8 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> All Posts</a> <small class="label pull-right bg-green">1</small></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Create Post</a></li>
+                        <li><a href="{{route('posts.index')}}"><i class="fa fa-circle-o"></i> All Posts <small class="label pull-right bg-green">1</small></a> </li>
+                        <li><a href="{{route('posts.index')}}"><i class="fa fa-circle-o"></i> Create Post</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

@@ -45,12 +45,22 @@
                                     {!! Form::label('password', 'Password:') !!}
                                     {!! Form::password('password', ['class' => 'form-control']) !!}
                                 </div>
-    
-                                <div class="form-group">
-                                    {!! Form::submit('Update User', ['class'=>'btn btn-primary']) !!}
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        {!! Form::submit('Update User', ['class'=>'btn btn-primary']) !!}
+                                    </div>
                                 </div>
+
+
                                 {!! Form::close() !!}
 
+                                {!! Form::model($user, ['method'=>'DELETE', 'action'=>['AdminUsersController@update', $user->id]]) !!}
+                                <div class="col-md-6">
+                                    <div class="form-group pull-right">
+                                        {!! Form::submit('Delete User', ['class'=>'btn btn-danger']) !!}
+                                    </div>
+                                </div>
+                                {!! Form::close() !!}
 
                             </div>
                         </div><!-- /.col -->

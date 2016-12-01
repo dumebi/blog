@@ -6,7 +6,7 @@
             <div class="box">
                 <div class="box-header">
                     <h3>
-                        New Admin
+                        New User
                     </h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
