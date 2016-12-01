@@ -130,7 +130,7 @@ use App\User;
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{route('posts.index')}}"><i class="fa fa-circle-o"></i> All Posts <small class="label pull-right bg-green">1</small></a> </li>
-                        <li><a href="{{route('posts.index')}}"><i class="fa fa-circle-o"></i> Create Post</a></li>
+                        <li><a href="{{route('posts.create')}}"><i class="fa fa-circle-o"></i> Create Post</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

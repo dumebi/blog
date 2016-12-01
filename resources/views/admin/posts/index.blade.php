@@ -33,7 +33,7 @@
                                 <tr>
                                     <td><img height="50" src="{{$post->photo ? $post->photo->path : '/images/avatar.png'}}" alt=""></td>
                                     <td>{{$post->user->name}}</td>
-                                    <td>{{$post->category_id}}</td>
+                                    <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
                                     <td><a href="{{route('posts.edit', $post->id)}}">{{$post->title}}</a></td>
                                     <td>{{$post->created_at->diffForHumans()}}</td>
                                     <td>{{$post->updated_at->diffForHumans()}}</td>
