@@ -31,8 +31,7 @@
                         @if($posts)
                             @foreach($posts as $post)
                                 <tr>
-                                    {{--<td><img height="50" src="{{$user->photo ? $user->photo->path : '/images/avatar.png'}}" alt=""></td>--}}
-                                    <td>{{$post->photo_id}}</td>
+                                    <td><img height="50" src="{{$post->photo ? $post->photo->path : '/images/avatar.png'}}" alt=""></td>
                                     <td>{{$post->user->name}}</td>
                                     <td>{{$post->category_id}}</td>
                                     <td><a href="{{route('posts.edit', $post->id)}}">{{$post->title}}</a></td>
