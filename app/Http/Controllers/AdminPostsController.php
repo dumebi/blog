@@ -6,8 +6,11 @@ use App\Category;
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class AdminPostsController extends Controller
 {
@@ -44,11 +47,15 @@ class AdminPostsController extends Controller
     public function store(PostsCreateRequest $request)
     {
         //
+
         $input = $request->all();
         $user = Auth::user();
-
+        
+        
+        $filename = $request["title"];
+        $filename = Str::slug($filename);
         if($file = $request->file("photo_id")){
-            $name = time() . $file->getClientOriginalName();
+            $name = $filename . time() . "." . $file->getClientOriginalExtension();
 
             $file->move('images', $name);
             $photo = Photo::create(['path'=> $name]);
@@ -80,6 +87,9 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
+        $post = Post::findOrFail($id);
+        $categories = Category::pluck('name', 'id')->all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -92,6 +102,22 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $input = $request->all();
+        
+        $filename = $request["title"];
+        $filename = Str::slug($filename);
+        if($file = $request->file("photo_id")){
+            $name = $filename . time() . "." . $file->getClientOriginalExtension();
+
+            $file->move('images', $name);
+            $photo = Photo::create(['path'=> $name]);
+
+            $input["photo_id"] = $photo->id;
+        }
+
+        Post::where('id', '=', $id)->first()->update($input);
+
+        return redirect('/admin/posts');
     }
 
     /**
@@ -103,5 +129,21 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
+        try{
+            $post = Post::findOrFail($id);
+            unlink(public_path() . $post->photo->path);
+            $post->delete();
+            
+        }catch(Exception $e){
+
+        }
+
+        
+
+        
+
+        Session::flash('deleted_post', 'Post has been deleted');
+
+        return redirect('/admin/posts');
     }
 }

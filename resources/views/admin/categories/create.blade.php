@@ -20,7 +20,7 @@
         <div class="col-xs-12">
             <div class="box box-default">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Edit Category</h3>
+                  <h3 class="box-title">New Category</h3>
 
                   <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -30,36 +30,23 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
+                            <!-- /.form-group -->
                             @include('includes.form_error')
-                            <div class="col-md-12">
-                                {!! Form::model($category, ['method'=>'patch', 'action'=>['AdminCategoriesController@update', $category->id], 'files'=> true]) !!}
-                                {!! Form::token() !!}
-                                <div class="form-group">
-                                    {!! Form::label('name', 'Name:') !!}
-                                    {!! Form::text('name', null, ['class'=>'form-control']) !!}
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        {!! Form::submit('Update Category', ['class'=>'btn btn-primary']) !!}
-                                    </div>
-                                </div>
-                                {!! Form::close() !!}
+                            {!! Form::open(['method'=>'post', 'action'=>'AdminCategoriesController@store', 'files'=> true]) !!}
+                            {!! Form::token() !!}
+                            <div class="form-group">
+                                {!! Form::label('name', 'Name:') !!}
+                                {!! Form::text('name', null, ['class'=>'form-control']) !!}
+                            </div>
+                            <div class="form-group">
+                                {!! Form::submit('Create Category', ['class'=>'btn btn-primary']) !!}
+                            </div>
+                            {!! Form::close() !!}
 
-                                {!! Form::model($category, ['method'=>'DELETE', 'action'=>['AdminCategoriesController@destroy', $category->id]]) !!}
-                                <div class="col-md-6">
-                                    <div class="form-group pull-right">
-                                        {!! Form::submit('Delete Category', ['class'=>'btn btn-danger']) !!}
-                                    </div>
-                                </div>
-                                {!! Form::close() !!}
-                                </div>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
-
         </div><!-- /.col -->
-
-
     </div><!-- /.row -->
 @endsection

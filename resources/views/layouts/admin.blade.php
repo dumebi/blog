@@ -1,8 +1,3 @@
-<?php
-use App\Photo;
-use App\Role;
-use App\User;
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +31,7 @@ use App\User;
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b><i class="fa fa-book"></i></b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b><i class="fa fa-book"></i> HealthPro</b></span>
+            <span class="logo-lg"><b><i class="fa fa-book"></i> Klipboard</b></span>
         </div>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -64,7 +59,7 @@ use App\User;
                             <li class="user-header">
                                 <img src="{{Auth::user()->photo ? Auth::user()->photo->path : '/images/avatar.png'}}" class="img-circle" alt="User Image">
                                 <p>
-                                    {{ Auth::user()->name }} - HealthPro
+                                    {{ Auth::user()->name }} - Klipboard
 
                                 </p>
                             </li>
@@ -119,7 +114,7 @@ use App\User;
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('users.index')}}"><i class="fa fa-circle-o"></i> All Users <small class="label pull-right bg-green">{{count(User::all())}}</small></a> </li>
+                        <li><a href="{{route('users.index')}}"><i class="fa fa-circle-o"></i> All Users <small class="label pull-right bg-green">{{count(\App\User::all())}}</small></a> </li>
                         <li><a href="{{route('users.create')}}"><i class="fa fa-circle-o"></i> Create User</a></li>
                     </ul>
                 </li>
@@ -129,7 +124,7 @@ use App\User;
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{route('posts.index')}}"><i class="fa fa-circle-o"></i> All Posts <small class="label pull-right bg-green">1</small></a> </li>
+                        <li><a href="{{route('posts.index')}}"><i class="fa fa-circle-o"></i> All Posts <small class="label pull-right bg-green">{{count(\App\Post::all())}}</small></a> </li>
                         <li><a href="{{route('posts.create')}}"><i class="fa fa-circle-o"></i> Create Post</a></li>
                     </ul>
                 </li>
@@ -139,26 +134,20 @@ use App\User;
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> All Categories</a> <small class="label pull-right bg-green">1</small></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Create Category</a></li>
+                        <li><a href="{{route('categories.index')}}"><i class="fa fa-circle-o"></i> All Categories <small class="label pull-right bg-green">{{count(\App\Category::all())}}</small></a> </li>
+                        <li><a href="{{route('categories.create')}}"><i class="fa fa-circle-o"></i> Create Category</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-book"></i> <span> Media</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> All Media</a> <small class="label pull-right bg-green">1</small></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Create Media</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="new_user.php">
-                        <i class="fa fa-user"></i> <span> Add new Admin user</span>
-                    </a>
-                </li>
-
+                {{--<li class="treeview">--}}
+                    {{--<a href="#">--}}
+                        {{--<i class="fa fa-book"></i> <span> Media</span>--}}
+                        {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                    {{--</a>--}}
+                    {{--<ul class="treeview-menu">--}}
+                        {{--<li><a href="{{route('media.index')}}"><i class="fa fa-circle-o"></i> All Media <small class="label pull-right bg-green">{{count(\App\Photo::all())}}</small></a> </li>--}}
+                        {{--<li><a href="{{route('media.create')}}"><i class="fa fa-circle-o"></i> Create Media</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
             </ul>
 
         </section>
@@ -172,8 +161,8 @@ use App\User;
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Courses</a></li>
-                <li class="active">All Courses</li>
+                {{--<li><a href="#">Courses</a></li>--}}
+                {{--<li class="active">All Courses</li>--}}
             </ol>
         </section>
 
@@ -186,7 +175,7 @@ use App\User;
         <div class="pull-right hidden-xs">
             <b>Version</b> 1.0.0
         </div>
-        <strong>Copyright &copy; {{Date('Y')}} <a href="http://applegreen.com">Apple Green</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; {{Date('Y')}} <a href="http://klipboard.com.ng">Klipboard</a>.</strong> All rights reserved.
     </footer>
     <!-- Add the sidebar's background. This div must be placed
    immediately after the control sidebar -->

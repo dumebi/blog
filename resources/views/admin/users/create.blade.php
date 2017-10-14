@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <!-- /.form-group -->
-                            @include('includes.form_error');
+                            @include('includes.form_error')
                             {!! Form::open(['method'=>'post', 'action'=>'AdminUsersController@store', 'files'=> true]) !!}
                             {!! Form::token() !!}
                             <div class="form-group">

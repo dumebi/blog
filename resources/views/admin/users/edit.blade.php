@@ -12,7 +12,7 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-12">
-                            @include('includes.form_error');
+                            @include('includes.form_error')
                             
                             <div class="col-md-3">
                                 <img src="{{$user->photo ? $user->photo->path : '/images/avatar.png'}}" class="img-responsive img-rounded" alt="">

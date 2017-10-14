@@ -2,64 +2,44 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <h1>
-                        New Courses
-                    </h1>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- /.form-group -->
-                            <form id="form1" name="form1" method="post" enctype="multipart/form-data" action="all_courses.php">
-                                <div class="form-group">
-                                    <label for="name">Course Name</label>
-                                    <input name="name" class="form-control" type="text" id="name" placeholder="Course Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="type">Course Type</label>
-                                    <select class="form-control" name="type" required="">
-                                        <option  value="online">Online</option>
-                                        <option  value="classroom">Classroom</option>
-                                        <option  value="both">Both</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="image">Upload Icon </label>
-                                    <input type="file" name="image" class="form-control" accept="image/*" required/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="course_module">Course Modules (Number)</label>
-                                    <input name="course_module" class="form-control" type="text" id="course_module" placeholder="Course Module (Number)" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prof_point">Professional Points (Optional)</label>
-                                    <input name="prof_point" class="form-control" type="text" id="prof_point" placeholder="Professional Points (Optional)">
-                                </div>
-                                <div class="form-group">
-                                    <label for="speciality">Speciality</label>
-                                    <input name="speciality" class="form-control" type="text" id="speciality" placeholder="Speciality" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="cost">Course Cost</label>
-                                    <input name="cost" class="form-control" type="text" id="cost" placeholder="Course Cost" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="description">Course Description</label>
-                                    <textarea name="description" class="form-control" type="text" id="mytextarea" required></textarea>
-                                </div>
-                                <input type="submit" name="insertButton" id="insertButton" value="Insert Course"  class="btn btn-sm btn-default btn-flat pull-right">
-                            </form>
-
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-play"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Media</span>
+                    <span class="info-box-number">{{count(\App\Photo::all())}}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
         </div><!-- /.col -->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-book"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Posts</span>
+                    <span class="info-box-number">{{count(\App\Post::all())}}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col -->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Admin</span>
+                    <span class="info-box-number">{{count(\App\User::all())}}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col --><div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-cog"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Categories</span>
+                    <span class="info-box-number">{{count(\App\Category::all())}}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col -->
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
 
 
     </div><!-- /.row -->
-   @endsection
+@endsection
