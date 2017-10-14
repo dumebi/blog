@@ -116,7 +116,7 @@
             <a class="nav-link active" href="/">Home</a>
             @if (Route::has('login'))
                     <a class="nav-link" href="{{ url('/login') }}">Login</a>
-                    <a class="nav-link" href="{{ url('/register') }}">Register</a>
+                    {{--<a class="nav-link" href="{{ url('/register') }}">Register</a>--}}
             @endif
 
         </nav>
